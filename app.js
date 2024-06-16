@@ -3,6 +3,17 @@ const min = (a, b) => (a < b ? a : b);
 
 let mainImage = "./image.jpg";
 let bgImage = "./bg.jpg";
+
+const searchParams = new URLSearchParams(window.location.search);
+if (searchParams.has("image")) {
+	mainImage = `./${searchParams.get("image")}.jpeg`;
+}
+if (searchParams.has("bg")) {
+	bgImage = `./${searchParams.get("bg")}.jpeg`;
+} else {
+	bgImage = mainImage;
+}
+
 let size = 500;
 
 let container = document.querySelector(".container");
